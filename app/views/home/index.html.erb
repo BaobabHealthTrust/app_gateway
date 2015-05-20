@@ -5,6 +5,11 @@
     font-size: 24px;
   }
 
+  .version_tag {
+    color: #ccc;
+    font-style: italic;
+  }
+
   .empty {
     border: 1px solid #ccc;
     border-radius: 15px;
@@ -144,7 +149,7 @@
       <div class="cell" style="height: 50px; border-top: 1px solid #3465a4; vertical-align: middle;">
         
         <div style="font-size: 22px; color: #3465a4; padding-left: 15px; float: left; vertical-align: middle; margin-top: 10px;">
-          Applications Portal
+          Applications Portal<sub class="version_tag">&nbsp;<%=version_tag%></sub>
         </div>
         
         <div style="font-size: 22px; color: #3465a4; padding-right: 15px; float: right;">
