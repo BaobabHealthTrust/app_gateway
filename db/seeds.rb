@@ -97,6 +97,12 @@ apps = [
       :url  => "http://appserver/edrsdc",
       :icon => "death.png",
       :user => (User.first.id rescue 1)
+    },
+    {
+      :name => "eDRS DC Remote",
+      :url  => "http://appserver/edrsdc",
+      :icon => "death.png",
+      :user => (User.first.id rescue 1)
     }
   ]
   
