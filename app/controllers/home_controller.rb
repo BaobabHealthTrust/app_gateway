@@ -1,3 +1,6 @@
+require 'socket'
+require 'resolv-replace'
+
 class HomeController < ApplicationController
   def index  
     @site = YAML.load_file("#{Rails.root}/config/settings.yml")[Rails.env]["site"] rescue "Facility Name" 
@@ -22,8 +25,9 @@ class HomeController < ApplicationController
     apps = {}
     
     Application.offset(startpos).limit(pagesize).each do |app|
-    
-      apps[app.application_name] = [app.url, app.icon_link, app.id]
+      ip = Socket.ip_address_list.detect{|intf| intf.ipv4_private?}
+      url = "#{app.url}?portal_url=#{ip.ip_address}:#{request.env["SERVER_PORT"]}"
+      apps[app.application_name] = [url, app.icon_link, app.id]
     
     end
     
